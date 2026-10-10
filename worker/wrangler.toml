@@ -1,0 +1,17 @@
+name = "onebook"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+
+[vars]
+# Web app origin allowed to call this Worker (comma-separate several). No trailing slash.
+ALLOWED_ORIGIN = "https://makestreme.github.io"
+
+[[durable_objects.bindings]]
+name = "TUNNEL"
+class_name = "Tunnel"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Tunnel"]
+
+# Secrets are set with `npx wrangler secret put DEVICE_SECRET` and `npx wrangler secret put APP_TOKEN`.
